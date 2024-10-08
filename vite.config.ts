@@ -23,8 +23,8 @@ const config: UserConfig = {
     host: "0.0.0.0",
     port: 5173,
     https: process.env.NODE_ENV === 'development' ? {
-      key: fs.readFileSync(path.resolve(__dirname, process.env.VITE_KEY ?? '/certs/cachebytes.com+4-key.pem')),
-      cert: fs.readFileSync(path.resolve(__dirname, process.env.VITE_CERT ?? '/certs/cachebytes.com+4.pem'))
+      key: fs.readFileSync(path.resolve(__dirname, process.env.VITE_KEY ?? './certs/cachebytes.com+4-key.pem')),
+      cert: fs.readFileSync(path.resolve(__dirname, process.env.VITE_CERT ?? './certs/cachebytes.com+4.pem'))
     } : undefined
   },
   css: {
