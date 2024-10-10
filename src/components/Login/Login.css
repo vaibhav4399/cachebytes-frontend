@@ -1,0 +1,23 @@
+.login_section {
+    @apply w-[95%] sm:w-w40 h-full absolute sm:left-0 flex-col items-center ml-[2%] sm:ml-[4%];
+
+    .section_title {
+        @apply text-3xl my-6 font-semibold text-center;
+    }
+
+    .section_body {
+        @apply w-full mx-2 flex justify-center items-center;
+
+        .section_form {
+            @apply w-full flex flex-col justify-center items-center;
+
+            input {
+                @apply border-2 w-full p-2 my-2 sm:my-3 rounded-xl
+            }
+
+            button {
+                @apply bg-black text-white rounded-xl p-1 mt-2 sm:p-2 w-w80 text-xl;
+            }
+        }
+    }
+}

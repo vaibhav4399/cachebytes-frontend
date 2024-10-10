@@ -3,6 +3,7 @@ import { createContext, useState, useEffect } from "react"
 import { ToastContainer, Bounce } from "react-toastify";
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
+import AuthModal from "../AuthModal/AuthModal";
 import IDataContext from "../../interfaces/dataContext"
 import checkSession from "../../utils/checkUserSession";
 
@@ -17,13 +18,19 @@ const Layout = () => {
     const [isLogIn, setIsLogIn] = useState<boolean>(() => {
         return localStorage.getItem('ILI') === 'true'
     });
+    const [accTok, setAccTok] = useState<string>(localStorage.getItem('a_k') ?? "");
+    const [isModal, setIsModal] = useState<boolean>(false);
     const [dark, setDark] = useState(false);
 
     const data: IDataContext = {
         userID,
         setUserID,
         isLogIn,
+        accTok,
+        setAccTok,
         setIsLogIn,
+        isModal,
+        setIsModal,
         dark,
         setDark
     }
@@ -35,16 +42,21 @@ const Layout = () => {
 
     useEffect(() => {
         
-        if(userID == "" && !isLogIn){
+        if(userID == "" && accTok=="" && !isLogIn){
             checkSession(url, setUserID, setIsLogIn);
         }
 
     },[])
 
+    useEffect(() => {
+        dark ? document.body.classList.add("dark"): document.body.classList.remove("dark");
+    },[dark])
+
     return (
         <dataContext.Provider value={data} >
             <div>
                 <Header />
+                <AuthModal />
                 <main>
                     <ToastContainer
                         newestOnTop={true}
