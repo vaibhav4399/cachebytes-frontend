@@ -1,0 +1,28 @@
+header {
+    @apply sticky top-0 w-full border-b-2 border-black dark:border-white z-10;
+
+    .header_container {
+        @apply w-full max-sm:px-3 p-6 flex justify-between;
+
+
+        .logo_section {
+            @apply  w-[160px] sm:w-[200px] md:w-[244px] flex items-center gap-2;
+
+            .hamburger {
+                @apply sm:hidden flex items-center text-2xl;
+            }
+
+            .logo {
+                @apply md:w-full flex items-center;
+            }
+        }
+
+        .profile_section {
+            @apply w-w40 md:w-[244px] flex justify-center items-center;
+
+            button {
+                @apply py-2 px-4 bg-black text-white dark:bg-white dark:text-black rounded-2xl font-semibold max-sm:text-lg max-sm:px-2
+            }
+        }
+    }
+}
